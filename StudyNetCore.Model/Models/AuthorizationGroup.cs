@@ -2,11 +2,14 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudyNetCore.Model.Models
 {
     public partial class AuthorizationGroup
     {
+        [Key]
+        [MaxLength(36),Required]
         public string Guid { get; set; }
         public string ParentId { get; set; }
         public string GroupName { get; set; }
