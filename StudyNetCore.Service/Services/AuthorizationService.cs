@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyNetCore.Services.Services
 {
-    internal class AuthorizationService:IAuthorization
+    internal class AuthorizationService : IAuthorization
     {
     }
 }

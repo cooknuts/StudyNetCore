@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyNetCore.Repository.Repository
 {
-    internal class DALBase:IDALBase
+    internal class DALBase : IDALBase
     {
     }
 }
