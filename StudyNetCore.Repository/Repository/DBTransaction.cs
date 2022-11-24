@@ -1,29 +1,24 @@
 ﻿using StudyNetCore.Repository.IRepository;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Common;
 
 namespace StudyNetCore.Repository.Repository
 {
-    internal class DBTransaction : IDBTransaction
+    internal class DBTransaction : IDBTransaction, IDisposable
     {
-        IDbConnection connection { get; set; }
-        IDbTransaction transaction { get; set; }
+        DbConnection connection { get; set; }
+        DbTransaction transaction { get; set; }
 
-        public DBTransaction(IDbConnection conn)
+        public DBTransaction(DbConnection connection)
         {
-            this.connection = conn;
+            this.connection = connection;
             this.connection.Open();
-            this.transaction = conn.BeginTransaction();
+            this.transaction = this.connection.BeginTransaction();
         }
 
-        public void Dispose()
+        public DbTransaction GetDBTranscation()
         {
-            this.transaction.Dispose();
-            this.connection.Close();
+            return transaction;
         }
 
         public void Commit()
@@ -36,6 +31,12 @@ namespace StudyNetCore.Repository.Repository
         {
             this.transaction.Rollback();
             this.connection.Close();
+        }
+
+        public void Dispose()
+        {
+            this.transaction.Dispose();
+            this.connection.Dispose();
         }
     }
 }

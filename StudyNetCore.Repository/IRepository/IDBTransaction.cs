@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyNetCore.Repository.IRepository
 {
-    public interface IDBTransaction : IDisposable
+    public interface IDBTransaction
     {
         public void Commit();
         public void Rollback();
