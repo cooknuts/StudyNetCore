@@ -19,35 +19,124 @@ namespace StudyNetCore.Model
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AuthorizationGroup> AuthorizationGroups { get; set; }
+        public virtual DbSet<AuthorizationPermission> AuthorizationPermissions { get; set; }
+        public virtual DbSet<AuthorizationRole> AuthorizationRoles { get; set; }
+        public virtual DbSet<AuthorizationUser> AuthorizationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasPostgresExtension("pg_catalog", "adminpack");
 
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<AuthorizationGroup>(entity =>
             {
                 entity.HasKey(e => e.Guid)
-                    .HasName("user_pkey");
+                    .HasName("group_pkey");
 
-                entity.ToTable("user");
+                entity.ToTable("authorization_group");
 
                 entity.Property(e => e.Guid)
                     .HasMaxLength(36)
                     .HasColumnName("guid")
                     .IsFixedLength();
 
-                entity.Property(e => e.Salt)
+                entity.Property(e => e.Description)
                     .HasMaxLength(100)
-                    .HasColumnName("salt");
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+
+                entity.Property(e => e.Groupname)
+                    .HasMaxLength(100)
+                    .HasColumnName("groupname");
+
+                entity.Property(e => e.Parentid)
+                    .HasMaxLength(36)
+                    .HasColumnName("parentid")
+                    .IsFixedLength();
+            });
+
+            modelBuilder.Entity<AuthorizationPermission>(entity =>
+            {
+                entity.HasKey(e => e.Guid)
+                    .HasName("permission_pkey");
+
+                entity.ToTable("authorization_permission");
+
+                entity.Property(e => e.Guid)
+                    .HasMaxLength(36)
+                    .HasColumnName("guid")
+                    .IsFixedLength();
+
+                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+
+                entity.Property(e => e.Parentid)
+                    .HasMaxLength(36)
+                    .HasColumnName("parentid")
+                    .IsFixedLength();
+
+                entity.Property(e => e.Permissionname)
+                    .HasMaxLength(100)
+                    .HasColumnName("permissionname");
+
+                entity.Property(e => e.Permissionnote)
+                    .HasMaxLength(100)
+                    .HasColumnName("permissionnote");
+            });
+
+            modelBuilder.Entity<AuthorizationRole>(entity =>
+            {
+                entity.HasKey(e => e.Guid)
+                    .HasName("role_pkey");
+
+                entity.ToTable("authorization_role");
+
+                entity.Property(e => e.Guid)
+                    .HasMaxLength(36)
+                    .HasColumnName("guid")
+                    .IsFixedLength();
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(100)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+
+                entity.Property(e => e.Parentid)
+                    .HasMaxLength(36)
+                    .HasColumnName("parentid")
+                    .IsFixedLength();
+
+                entity.Property(e => e.Rolename)
+                    .HasMaxLength(100)
+                    .HasColumnName("rolename");
+            });
+
+            modelBuilder.Entity<AuthorizationUser>(entity =>
+            {
+                entity.HasKey(e => e.Guid)
+                    .HasName("user_pkey");
+
+                entity.ToTable("authorization_user");
+
+                entity.Property(e => e.Guid)
+                    .HasMaxLength(36)
+                    .HasColumnName("guid")
+                    .IsFixedLength();
+
+                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+
+                entity.Property(e => e.Lastlogintime).HasColumnName("lastlogintime");
+
+                entity.Property(e => e.Logintime).HasColumnName("logintime");
 
                 entity.Property(e => e.Username)
-                    .HasMaxLength(100)
+                    .HasMaxLength(50)
                     .HasColumnName("username");
 
-                entity.Property(e => e.Userpwd)
-                    .HasMaxLength(100)
-                    .HasColumnName("userpwd");
+                entity.Property(e => e.Userpassword)
+                    .HasMaxLength(250)
+                    .HasColumnName("userpassword");
             });
 
             OnModelCreatingPartial(modelBuilder);

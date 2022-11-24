@@ -6,8 +6,20 @@ using System.Threading.Tasks;
 
 namespace StudyNetCore.Model
 {
-    public class ResponseMessage
+    public enum ResultCode
     {
 
+    }
+    public class Result<T>
+    {
+        private ResultCode code;
+        private string message;
+        private T data;
+        public Result(ResultCode code, string message, T data)
+        {
+            this.code = code;
+            this.message = message;
+            this.data = data;
+        }
     }
 }

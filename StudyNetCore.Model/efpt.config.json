@@ -15,7 +15,19 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "public.user",
+         "Name": "public.authorization_group",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.authorization_permission",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.authorization_role",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.authorization_user",
          "ObjectType": 0
       }
    ],

@@ -5,11 +5,12 @@ using System.Collections.Generic;
 
 namespace StudyNetCore.Model.Models
 {
-    public partial class User
+    public partial class AuthorizationPermission
     {
         public string Guid { get; set; }
-        public string Username { get; set; }
-        public string Userpwd { get; set; }
-        public string Salt { get; set; }
+        public string Parentid { get; set; }
+        public string Permissionname { get; set; }
+        public string Permissionnote { get; set; }
+        public DateOnly? Generatetime { get; set; }
     }
 }
