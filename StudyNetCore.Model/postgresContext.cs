@@ -44,15 +44,15 @@ namespace StudyNetCore.Model
                     .HasMaxLength(100)
                     .HasColumnName("description");
 
-                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+                entity.Property(e => e.GenerateTime).HasColumnName("generate_time");
 
-                entity.Property(e => e.Groupname)
+                entity.Property(e => e.GroupName)
                     .HasMaxLength(100)
-                    .HasColumnName("groupname");
+                    .HasColumnName("group_name");
 
-                entity.Property(e => e.Parentid)
+                entity.Property(e => e.ParentId)
                     .HasMaxLength(36)
-                    .HasColumnName("parentid")
+                    .HasColumnName("parent_id")
                     .IsFixedLength();
             });
 
@@ -68,20 +68,20 @@ namespace StudyNetCore.Model
                     .HasColumnName("guid")
                     .IsFixedLength();
 
-                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+                entity.Property(e => e.GenerateTime).HasColumnName("generate_time");
 
-                entity.Property(e => e.Parentid)
+                entity.Property(e => e.ParentId)
                     .HasMaxLength(36)
-                    .HasColumnName("parentid")
+                    .HasColumnName("parent_id")
                     .IsFixedLength();
 
-                entity.Property(e => e.Permissionname)
+                entity.Property(e => e.PermissionName)
                     .HasMaxLength(100)
-                    .HasColumnName("permissionname");
+                    .HasColumnName("permission_name");
 
-                entity.Property(e => e.Permissionnote)
+                entity.Property(e => e.PermissionNote)
                     .HasMaxLength(100)
-                    .HasColumnName("permissionnote");
+                    .HasColumnName("permission_note");
             });
 
             modelBuilder.Entity<AuthorizationRole>(entity =>
@@ -100,16 +100,16 @@ namespace StudyNetCore.Model
                     .HasMaxLength(100)
                     .HasColumnName("description");
 
-                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+                entity.Property(e => e.GenerateTime).HasColumnName("generate_time");
 
-                entity.Property(e => e.Parentid)
+                entity.Property(e => e.ParentId)
                     .HasMaxLength(36)
-                    .HasColumnName("parentid")
+                    .HasColumnName("parent_id")
                     .IsFixedLength();
 
-                entity.Property(e => e.Rolename)
+                entity.Property(e => e.RoleName)
                     .HasMaxLength(100)
-                    .HasColumnName("rolename");
+                    .HasColumnName("role_name");
             });
 
             modelBuilder.Entity<AuthorizationUser>(entity =>
@@ -124,19 +124,19 @@ namespace StudyNetCore.Model
                     .HasColumnName("guid")
                     .IsFixedLength();
 
-                entity.Property(e => e.Generatetime).HasColumnName("generatetime");
+                entity.Property(e => e.GenerateTime).HasColumnName("generate_time");
 
-                entity.Property(e => e.Lastlogintime).HasColumnName("lastlogintime");
+                entity.Property(e => e.LastLoginTime).HasColumnName("last_login_time");
 
-                entity.Property(e => e.Logintime).HasColumnName("logintime");
+                entity.Property(e => e.LoginTime).HasColumnName("login_time");
 
-                entity.Property(e => e.Username)
+                entity.Property(e => e.UserName)
                     .HasMaxLength(50)
-                    .HasColumnName("username");
+                    .HasColumnName("user_name");
 
-                entity.Property(e => e.Userpassword)
+                entity.Property(e => e.UserPassword)
                     .HasMaxLength(250)
-                    .HasColumnName("userpassword");
+                    .HasColumnName("user_password");
             });
 
             OnModelCreatingPartial(modelBuilder);

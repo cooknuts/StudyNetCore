@@ -8,9 +8,9 @@ namespace StudyNetCore.Model.Models
     public partial class AuthorizationPermission
     {
         public string Guid { get; set; }
-        public string Parentid { get; set; }
-        public string Permissionname { get; set; }
-        public string Permissionnote { get; set; }
-        public DateOnly? Generatetime { get; set; }
+        public string ParentId { get; set; }
+        public string PermissionName { get; set; }
+        public string PermissionNote { get; set; }
+        public DateOnly? GenerateTime { get; set; }
     }
 }

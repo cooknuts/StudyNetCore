@@ -8,9 +8,9 @@ namespace StudyNetCore.Model.Models
     public partial class AuthorizationGroup
     {
         public string Guid { get; set; }
-        public string Parentid { get; set; }
-        public string Groupname { get; set; }
-        public DateOnly? Generatetime { get; set; }
+        public string ParentId { get; set; }
+        public string GroupName { get; set; }
+        public DateOnly? GenerateTime { get; set; }
         public string Description { get; set; }
     }
 }

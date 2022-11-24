@@ -8,10 +8,10 @@ namespace StudyNetCore.Model.Models
     public partial class AuthorizationUser
     {
         public string Guid { get; set; }
-        public string Username { get; set; }
-        public string Userpassword { get; set; }
-        public DateOnly? Generatetime { get; set; }
-        public DateOnly? Logintime { get; set; }
-        public DateOnly? Lastlogintime { get; set; }
+        public string UserName { get; set; }
+        public string UserPassword { get; set; }
+        public DateOnly? GenerateTime { get; set; }
+        public DateOnly? LoginTime { get; set; }
+        public DateOnly? LastLoginTime { get; set; }
     }
 }
