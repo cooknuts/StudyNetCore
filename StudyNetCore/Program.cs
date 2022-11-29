@@ -22,6 +22,9 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
     .InstancePerDependency();
 });
 
+//log4net»’÷æ≈‰÷√
+builder.Logging.AddLog4Net("ConfigFile/log4Net.config");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
